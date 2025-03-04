@@ -3,29 +3,61 @@
 <head>
     <title>Aeroparker Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/app.css}" rel="stylesheet" />
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
+    <script th:src="@{/js/app.js}" defer></script>
 </head>
 <body>
-<h1>Register</h1>
-<form action="#" th:action="@{/registration}" th:object="${registeredUser}" method="post">
-    <label>Email Address: <input type="text" th:field="*{emailAddress}" /></label>
-    <br/>
-    <label>Title: <input type="text" th:field="*{title}" /></label>
-    <br/>
-    <label>First Name: <input type="text" th:field="*{firstName}" /></label>
-    <label>Last Name: <input type="text" th:field="*{lastName}" /></label>
-    <br/>
-    <label>Address Line 1: <input type="text" th:field="*{addressLine1}" /></label>
-    <br/>
-    <label>Address Line 2:<input type="text" th:field="*{addressLine2}" /></label>
-    <br/>
-    <label>City: <input type="text" th:field="*{city}" /></label>
-    <br/>
-    <label>Postcode: <input type="text" th:field="*{postcode}" /></label>
-    <br/>
-    <label>Phone number: <input type="text" th:field="*{phoneNumber}" /></label>
-    <br/>
-
-    <button type="submit">Submit</button>
-</form>
+    <div  class="d-flex justify-content-center">
+    <div class="bg-dark text-white px-5 mt-3 py-3">
+        <h1>Register</h1>
+        <p class="bg-white text-danger text-bold rounded text-center" th:text="${exceptionMessage}"></p>
+        <p>Fields marked with * are required.</p>
+        <form action="#" th:action="@{/registration}" th:object="${registeredUser}" class="mb-3" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="email">*Email Address: </label>
+                <input id="email" class="form-control" type="text" th:field="*{emailAddress}"/>
+            </div>
+            <div class="mb-3 col-lg-6">
+                <label for="title">*Title: </label>
+                <input id="title" class="form-control"  type="text" th:field="*{title}" />
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+                <div class="col-lg-5">
+                    <label for="firstName">*First Name: </label>
+                    <input id="firstName" class="form-control" type="text" th:field="*{firstName}" />
+                </div>
+                <div class="col-lg-6">
+                    <label for="lastName">*Last Name: </label>
+                    <input id="lastName" class="form-control" type="text" th:field="*{lastName}" />
+                </div>
+            </div>
+            <div class="mb-3 ">
+                <label for="add1">*Address Line 1: </label>
+                <input id="add1" class="form-control" type="text" th:field="*{addressLine1}" />
+            </div>
+            <div class="mb-3 ">
+                <label for="add2">Address Line 2:</label>
+                <input id="add2" class="form-control" type="text" th:field="*{addressLine2}" />
+            </div>
+            <div class="mb-3 col-lg-6 ">
+                <label for="city">City: </label>
+                <input id="city" class="form-control" type="text" th:field="*{city}" />
+            </div>
+            <div class="mb-3 col-lg-6">
+                <label for="postcode">*Postcode: </label>
+                <input id="postcode" class="form-control" type="text" th:field="*{postcode}" />
+            </div>
+            <div class="mb-3">
+                <label for="phoneNo">Phone number: </label>
+                <input id="phoneNo" class="form-control" type="text" th:field="*{phoneNumber}" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-light">Submit</button>
+            </div>
+        </form>
+    </div>
+    </div>
 </body>
 </html>
